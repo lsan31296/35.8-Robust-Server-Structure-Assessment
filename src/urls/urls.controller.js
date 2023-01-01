@@ -14,7 +14,7 @@ function create(req, res) {
         href
     };
     urls.push(newUrl);
-    res.status(201).json({ data: { href: newUrl } });
+    res.status(201).json({ data: newUrl });
 }
 
 function hasHref(req, res, next) {
@@ -48,8 +48,15 @@ function read(req, res) {
     res.json({ data: res.locals.url });
 }
 
+function update(req, res) {
+    const { data: { href } = {} } = req.body;
+    res.locals.url.href = href;
+    res.json({ data: res.locals.url });
+}
+
 module.exports= {
     list,
     create: [hasHref, create],
     read: [urlExists, read],
+    update: [hasHref, urlExists, update],
 }
