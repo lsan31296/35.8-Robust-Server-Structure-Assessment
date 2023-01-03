@@ -9,5 +9,3 @@ router.route("/:urlId").get(controller.read).put(controller.update).all(methodNo
 router.route("/").get(controller.list).post(controller.create).all(methodNotAllowed);
 
 module.exports = router;
-
-//NEED TO ADD, COMMIT, PUSH TO GIT, COMPLETED GET METHOD FOR URLS/:URLID/USES
