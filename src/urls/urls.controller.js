@@ -59,4 +59,5 @@ module.exports= {
     create: [hasHref, create],
     read: [urlExists, read],
     update: [hasHref, urlExists, update],
+    urlExists,
 }
